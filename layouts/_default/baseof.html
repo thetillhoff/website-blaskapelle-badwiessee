@@ -136,6 +136,8 @@
       .kontakt-hgrid .cc-m-hgrid-column.last { float: none; width: 100% !important; padding: 0 0 1.5em; }
     }
     /* Musikanten layout */
+    /* .jtpl-content p justifies; it stretched the short instrument headings */
+    .musikanten-list p { text-align: left; }
     .musikanten-photos { display: flex; gap: 2%; margin-bottom: 3em; }
     .musikanten-members { display: flex; gap: 4%; align-items: flex-start; margin-bottom: 3em; }
     .musikanten-portrait { width: 28%; flex-shrink: 0; }
@@ -147,6 +149,12 @@
       .musikanten-portrait { width: 100% !important; max-width: none; flex-shrink: 1; }
       .musikanten-list { width: 100%; column-count: 1; padding: 2em 0; }
     }
+    /* Dropdown is clamped to its 200px min-width, so the widest label ("2020 - 2029")
+       wrapped to two lines. nowrap makes the shrink-to-fit width follow the text. */
+    .jtpl-navigation__inner .j-nav-level-1 { white-space: nowrap; }
+    /* Back link on every subpage */
+    .back-link { display: inline-block; margin-bottom: 2em; padding: 8px 16px; background-color: #1d6474; color: #fff !important; font-family: "Open Sans", sans-serif; font-size: 18px; text-decoration: none !important; border-radius: 4px; transition: background-color .2s ease-out; }
+    .back-link:hover, .back-link:focus { background-color: #14505d; color: #fff !important; }
     /* Chronik decade pages — scoped to .chronik-content wrapper */
     .chronik-content h2 { font-size: 22px; font-weight: bold; text-align: left; margin-top: 1.5em; margin-bottom: 1em; }
     .chronik-content h3 { font-weight: bold; text-align: left; margin-top: 2em; margin-bottom: 0.8em; }
@@ -214,6 +222,13 @@
         <div class="jtpl-content content-options cc-content-parent">
           <div class="jtpl-content__inner">
             <main>
+              {{ if not .IsHome }}
+                {{ $backURL := "/" }}{{ $backText := "Zurück zur Startseite" }}
+                {{ if or (eq .Type "chronik") (eq .RelPermalink "/ehrentafel/") }}
+                  {{ $backURL = "/chronik-1/" }}{{ $backText = "Zurück zur Chronik" }}
+                {{ end }}
+                <a class="back-link" href="{{ $backURL }}">&#8592; {{ $backText }}</a>
+              {{ end }}
               {{- block "main" . }}{{- end }}
             </main>
           </div>

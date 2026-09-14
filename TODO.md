@@ -18,6 +18,8 @@
 ## Inhalte
 
 - Chronik-Jahrzehnte 2010er/2020er — Die Daten in den Überschriften stammen aus den alten Blog-Veröffentlichungsdaten, sofern im Text kein Veranstaltungsdatum stand. Bei „Konzerte im Kurpark Abwinkel", „Unsere neue Homepage", „Eröffnung Lindenplatz", „Bergmesse am Kirchweihmontag", „Frühschoppen auf dem Wallberg" und „Kirchweihmontag auf der Aueralm" die tatsächlichen Veranstaltungsdaten prüfen.
+- Chronik 2000 - 2009 — Seite fehlt komplett. Sobald der Text vom Verein vorliegt: `content/2000-2009.md` anlegen (`type: chronik`), Button in `layouts/chronik-1/list.html` und Menüeintrag in `hugo.toml` ergänzen.
+- Einleitungstexte für 2000 - 2009, 2010 - 2019 und 2020 - 2029 — der Verein schreibt sie. Jeweils oben in die Jahrzehnt-Datei einfügen, so wie bei `content/1924-1929.md`.
 - `content/ehrentafel.md` — Bildunterschrift und Alt-Text lauten „Albin Schmidt", alle anderen Stellen (Musikantenliste, Chronik) schreiben „Albin Schmied". Schreibweise vereinheitlichen.
 - Fehlende Alt-Texte bei inhaltlichen Bildern: `content/1960-1969.md`, `content/1990-1999.md`, `content/ueber-uns/musikanten.md` sowie mehrere Bilder in `content/2010-2019.md`. Beschreibende Alt-Texte ergänzen.
 - `content/mach-mit.md` — Galeriebilder haben keinen Alt-Text. Beschreibende Alt-Texte ergänzen oder Bilder als dekorativ auszeichnen.
