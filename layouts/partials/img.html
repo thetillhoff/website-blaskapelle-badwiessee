@@ -1,15 +1,36 @@
 {{- /*
   Renders one image as <picture> with AVIF and WebP sources and the original
   as fallback. Params: src (required, site-absolute e.g. /images/x.jpg), alt,
-  class, style, loading (default "lazy").
+  class, style, sizes (default "100vw"), loading (default "lazy").
 */ -}}
 {{- $src := .src -}}
 {{- $r := resources.Get (strings.TrimPrefix "/" $src) -}}
 {{- if not $r -}}
   {{- errorf "partial img.html: no resource for %q — images must live in assets/, not static/" $src -}}
 {{- end -}}
+{{- /*
+  Extra widths pay off only where the original is much wider than the layout
+  ever needs it. Below 1200px the nearest variant lands within a few hundred
+  pixels of the original and just costs build time.
+*/ -}}
+{{- $widths := slice -}}
+{{- if gt $r.Width 1200 -}}
+  {{- range slice 480 768 1024 1536 -}}
+    {{- if lt . $r.Width }}{{ $widths = $widths | append . }}{{ end -}}
+  {{- end -}}
+{{- end -}}
 <picture>
-  <source type="image/avif" srcset="{{ ($r.Process "avif").RelPermalink }}">
-  <source type="image/webp" srcset="{{ ($r.Process "webp").RelPermalink }}">
+{{- range $fmt := slice "avif" "webp" }}
+  {{- $set := slice -}}
+  {{- range $w := $widths -}}
+    {{- $set = $set | append (printf "%s %dw" ($r.Resize (printf "%dx %s" $w $fmt)).RelPermalink $w) -}}
+  {{- end }}
+  {{- if $widths }}
+    {{- $set = $set | append (printf "%s %dw" ($r.Process $fmt).RelPermalink $r.Width) }}
+  <source type="image/{{ $fmt }}" srcset="{{ delimit $set ", " }}" sizes="{{ $.sizes | default "100vw" }}">
+  {{- else }}
+  <source type="image/{{ $fmt }}" srcset="{{ ($r.Process $fmt).RelPermalink }}">
+  {{- end }}
+{{- end }}
   <img src="{{ $r.RelPermalink }}" alt="{{ .alt }}" width="{{ $r.Width }}" height="{{ $r.Height }}" loading="{{ .loading | default "lazy" }}" decoding="async"{{ with .class }} class="{{ . }}"{{ end }}{{ with .style }} style="{{ . | safeCSS }}"{{ end }}>
 </picture>

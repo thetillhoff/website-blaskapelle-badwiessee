@@ -4,6 +4,10 @@ disableKinds = ["RSS"]
 defaultContentLanguage = "de"
 title = "Blaskapelle Bad Wiessee"
 
+# box, the default, softens photos noticeably when generating the srcset widths
+[imaging]
+  resampleFilter = "CatmullRom"
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
