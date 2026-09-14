@@ -11,7 +11,7 @@
 
 ## Konfiguration / Daten
 
-- Bilder als WebP ausliefern für bessere Ladezeiten. Zwei Möglichkeiten: (1) Cloudflare als Proxy/CDN vorschalten — wandelt Bilder kostenlos automatisch in WebP um (Funktion „Polish"); (2) Bilder in `assets/` verschieben und Hugo-Bildverarbeitung (`.Resize` etc.) in den Templates nutzen, was einen größeren Umbau bedeutet.
+- Grosse Bilder zusätzlich per `srcset` in mehreren Breiten ausliefern. Betrifft vor allem `assets/images/blaskapelle-bad-wiessee.jpg` (2048 px breit, Startseite) und `assets/images/icb615e682f2c2757.jpg` (2746 px breit). Alle anderen Bilder sind bereits passend dimensioniert.
 
 - `data/gallery.yaml` — Die ersten fünf Fotos haben keinen Beschreibungstext (`caption: ""`). Beschreibungen ergänzen oder im Template einen Fallback einbauen, damit der `alt`-Text nie leer bleibt.
 

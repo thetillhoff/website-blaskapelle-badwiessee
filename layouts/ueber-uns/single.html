@@ -5,15 +5,15 @@
 
   <!-- Three group photos in a row -->
   <div class="musikanten-photos">
-    <div style="flex:1;"><img src="/images/i612737536fc47dd1.jpg" style="width:100%;height:auto;" alt="Blaskapelle Bad Wiessee"></div>
-    <div style="flex:1;"><img src="/images/ief5b0efbbca03838.jpg" style="width:100%;height:auto;" alt="Blaskapelle Bad Wiessee"></div>
-    <div style="flex:1;"><img src="/images/i26acc4ba351ede1c.jpg" style="width:100%;height:auto;" alt="Blaskapelle Bad Wiessee"></div>
+    <div style="flex:1;">{{ partial "img.html" (dict "src" "/images/i612737536fc47dd1.jpg" "alt" "Blaskapelle Bad Wiessee" "style" "width:100%;height:auto;") }}</div>
+    <div style="flex:1;">{{ partial "img.html" (dict "src" "/images/ief5b0efbbca03838.jpg" "alt" "Blaskapelle Bad Wiessee" "style" "width:100%;height:auto;") }}</div>
+    <div style="flex:1;">{{ partial "img.html" (dict "src" "/images/i26acc4ba351ede1c.jpg" "alt" "Blaskapelle Bad Wiessee" "style" "width:100%;height:auto;") }}</div>
   </div>
 
   <!-- Portrait left | instrument list | portrait right -->
   <div class="musikanten-members">
     <div class="musikanten-portrait">
-      <img src="/images/i63a0d20f845ec08e.jpg" style="width:100%;height:auto;" alt="">
+      {{ partial "img.html" (dict "src" "/images/i63a0d20f845ec08e.jpg" "alt" "" "style" "width:100%;height:auto;") }}
     </div>
     <div class="musikanten-list">
       <div style="break-inside:avoid;"><p style="margin:0 0 0.6em;"><strong>Klarinetten:</strong></p><p style="margin:0 0 1.6em;">Tamara Deichert<br>Laetitia Deimhard<br>Vroni Köck<br>Franzi Marcher<br>Almut Mattner<br>Hannah Mattner<br>Franco Melato</p></div>
@@ -24,7 +24,7 @@
       <div style="break-inside:avoid;"><p style="margin:0 0 0.6em;"><strong>Schlagwerk:</strong></p><p style="margin:0;">Korbinian Herzinger</p></div>
     </div>
     <div class="musikanten-portrait">
-      <img src="/images/ic1a981005afb772b.jpg" style="width:100%;height:auto;" alt="">
+      {{ partial "img.html" (dict "src" "/images/ic1a981005afb772b.jpg" "alt" "" "style" "width:100%;height:auto;") }}
     </div>
   </div>
 {{ end }}

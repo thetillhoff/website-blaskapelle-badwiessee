@@ -1,0 +1,15 @@
+{{- /*
+  Renders one image as <picture> with AVIF and WebP sources and the original
+  as fallback. Params: src (required, site-absolute e.g. /images/x.jpg), alt,
+  class, style, loading (default "lazy").
+*/ -}}
+{{- $src := .src -}}
+{{- $r := resources.Get (strings.TrimPrefix "/" $src) -}}
+{{- if not $r -}}
+  {{- errorf "partial img.html: no resource for %q — images must live in assets/, not static/" $src -}}
+{{- end -}}
+<picture>
+  <source type="image/avif" srcset="{{ ($r.Process "avif").RelPermalink }}">
+  <source type="image/webp" srcset="{{ ($r.Process "webp").RelPermalink }}">
+  <img src="{{ $r.RelPermalink }}" alt="{{ .alt }}" width="{{ $r.Width }}" height="{{ $r.Height }}" loading="{{ .loading | default "lazy" }}" decoding="async"{{ with .class }} class="{{ . }}"{{ end }}{{ with .style }} style="{{ . | safeCSS }}"{{ end }}>
+</picture>

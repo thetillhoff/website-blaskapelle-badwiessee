@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="/css/layout.css" type="text/css">
   <style>
     html, body { margin: 0; }
+    picture { display: contents; }
     .hidden { display: none; }
     .jtpl-section-main { max-width: 100%; margin: 0 auto; }
     .jtpl-header { padding-top: 80px; padding-bottom: 50px; }
@@ -172,7 +173,8 @@
   <div class="jtpl-main">
 
     <!-- background area -->
-    <div class="jtpl-background-area" style="background-image:url('/images/background.jpg');background-size:cover;background-position:center;"></div>
+    {{ $bg := resources.Get "images/background.jpg" }}
+    <div class="jtpl-background-area" style="background-image:url('{{ $bg.RelPermalink }}');background-image:image-set(url('{{ ($bg.Process "webp").RelPermalink }}') type('image/webp'), url('{{ $bg.RelPermalink }}') type('image/jpeg'));background-size:cover;background-position:center;"></div>
 
     <!-- mobile topbar -->
     <div class="jtpl-mobile-topbar navigation-colors">
@@ -240,7 +242,7 @@
             <div class="cc-m-hgrid-column" style="width: 31.99%;">
               <div class="j-module n j-imageSubtitle">
                 <figure class="cc-imagewrapper cc-m-image-align-1 cc-m-width-maxed">
-                  <img src="/images/gallery/i67d12d4c195f6273.jpg" alt="" style="max-width:100%;height:auto;">
+                  {{ partial "img.html" (dict "src" "/images/gallery/i67d12d4c195f6273.jpg" "alt" "" "style" "max-width:100%;height:auto;") }}
                 </figure>
                 <div class="cc-clear"></div>
               </div>
@@ -261,7 +263,7 @@
             <div class="cc-m-hgrid-column last" style="width: 31.99%;">
               <div class="j-module n j-imageSubtitle">
                 <figure class="cc-imagewrapper cc-m-image-align-1 cc-m-width-maxed">
-                  <img src="/images/gallery/ie10a4ee685065496.jpg" alt="" style="max-width:100%;height:auto;">
+                  {{ partial "img.html" (dict "src" "/images/gallery/ie10a4ee685065496.jpg" "alt" "" "style" "max-width:100%;height:auto;") }}
                 </figure>
                 <div class="cc-clear"></div>
               </div>
