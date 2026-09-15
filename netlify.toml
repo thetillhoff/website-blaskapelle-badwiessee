@@ -14,12 +14,6 @@
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
 [[redirects]]
-  from = "/ueber-uns/"
-  to = "/ueber-uns/musikanten/"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/ueber-uns"
   to = "/ueber-uns/musikanten/"
   status = 301
