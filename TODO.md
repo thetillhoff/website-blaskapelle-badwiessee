@@ -11,7 +11,10 @@
 
 ## Konfiguration / Daten
 
-- `assets/images/ic8511965989b768b.jpg` wird nirgends verwendet und ist ein Duplikat von `kontakt-band.jpg`. Löschen.
+- Zwölf Bilder in `assets/images/` werden nirgends verwendet. Hugo verarbeitet und veröffentlicht sie nicht, sie kosten also weder Bauzeit noch Ladezeit — nur Platz im Repository (0,85 MB). Prüfen, ob eines davon auf eine Seite gehört, sonst löschen:
+  `adventskonzert-blaskapelle-bad-wiessee.jpg`, `adventskonzert.jpg`, `i57dae88431485983.jpg` (dasselbe Vereinsbanner in drei Grössen),
+  `i04a41873a90a5272.jpg`, `i25c9b4b14a0aa410.jpg`, `i352af00a6eba8eee.jpg`, `i9b6dd2db7bb0cd2c.jpg`, `ic2c181b892df49e5.jpg`,
+  `id07145902dd1951f.jpg`, `ide56f889fa32aab1.jpg`, `if482115693157427.jpg`, `ifafa4a5385e9c8ad.jpg`.
 
 - `data/gallery.yaml` — Die ersten fünf Fotos haben keinen Beschreibungstext (`caption: ""`). Beschreibungen ergänzen oder im Template einen Fallback einbauen, damit der `alt`-Text nie leer bleibt.
 
