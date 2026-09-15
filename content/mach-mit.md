@@ -26,5 +26,5 @@ Am besten vereinbarst Du gleich einen Termin und besuchst uns bei einer unserer 
 {{< gallery >}}
 {{< gallery-item src="/images/i8cd29647d8dd0304.jpg" >}}
 {{< gallery-item src="/images/icf2fe7e34c9574a0.jpg" >}}
-{{< gallery-item src="/images/i5e6d84a085cee828.jpg" >}}
+{{< gallery-item src="/images/gallery/i6826066333128cdd.jpg" >}}
 {{< /gallery >}}
