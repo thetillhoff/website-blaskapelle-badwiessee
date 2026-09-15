@@ -1,0 +1,99 @@
+baseURL: https://www.blaskapelle-badwiessee.de/
+locale: de-DE
+defaultContentLanguage: de
+title: Blaskapelle Bad Wiessee
+disableKinds:
+  - RSS
+
+imaging:
+  # box, the default, softens photos noticeably when generating the srcset widths
+  resampleFilter: CatmullRom
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: false
+
+menus:
+  main:
+    - identifier: ueber-uns
+      name: Über uns
+      url: /
+      weight: 1
+    - identifier: musikanten
+      name: Musikanten
+      url: /ueber-uns/musikanten/
+      parent: ueber-uns
+      weight: 1
+    - identifier: mach-mit
+      name: Mach mit
+      url: /mach-mit/
+      parent: ueber-uns
+      weight: 2
+    - identifier: chronik
+      name: Chronik
+      url: /chronik-1/
+      weight: 4
+    - identifier: ehrentafel
+      name: Ehrentafel
+      url: /ehrentafel/
+      parent: chronik
+      weight: 1
+    - identifier: chronik-2020
+      name: 2020 - 2029
+      url: /2020-2029/
+      parent: chronik
+      weight: 2
+    - identifier: chronik-2010
+      name: 2010 - 2019
+      url: /2010-2019/
+      parent: chronik
+      weight: 3
+    - identifier: chronik-1990
+      name: 1990 - 1999
+      url: /1990-1999/
+      parent: chronik
+      weight: 4
+    - identifier: chronik-1980
+      name: 1980 - 1989
+      url: /1980-1989/
+      parent: chronik
+      weight: 5
+    - identifier: chronik-1970
+      name: 1970 - 1979
+      url: /1970-1979/
+      parent: chronik
+      weight: 6
+    - identifier: chronik-1960
+      name: 1960 - 1969
+      url: /1960-1969/
+      parent: chronik
+      weight: 7
+    - identifier: chronik-1950
+      name: 1950 - 1959
+      url: /1950-1959/
+      parent: chronik
+      weight: 8
+    - identifier: chronik-1940
+      name: 1940 - 1949
+      url: /1940-1949/
+      parent: chronik
+      weight: 9
+    - identifier: chronik-1930
+      name: 1930 - 1939
+      url: /1930-1939/
+      parent: chronik
+      weight: 10
+    - identifier: chronik-1924
+      name: 1924 - 1929
+      url: /1924-1929/
+      parent: chronik
+      weight: 11
+    - identifier: galerie
+      name: Galerie
+      url: /galerie/
+      weight: 5
+    - identifier: kontakt
+      name: Kontakt
+      url: /kontakt/
+      weight: 6
